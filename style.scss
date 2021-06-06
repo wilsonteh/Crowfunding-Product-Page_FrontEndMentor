@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Commissioner", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: lightblue;
+    background-image: url("./images/image-hero-desktop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    padding: 2rem 8rem 0 8rem;
+    box-sizing: border-box;
+
+    .logo-wrapper {
+        width: 20%;
+    }
+
+    nav {
+        width: 30%;
+
+        .navlinks {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-evenly;
+            
+            li {
+                list-style: none;
+            }
+            li a {
+                text-decoration: none;
+                color: white;
+            }
+            li:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

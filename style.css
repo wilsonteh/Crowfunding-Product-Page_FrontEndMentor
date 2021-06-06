@@ -1,1 +1,57 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Commissioner", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: lightblue;
+  background-image: url("./images/image-hero-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  padding: 2rem 8rem 0 8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header .logo-wrapper {
+  width: 20%;
+}
+
+header nav {
+  width: 30%;
+}
+
+header nav .navlinks {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header nav .navlinks li {
+  list-style: none;
+}
+
+header nav .navlinks li a {
+  text-decoration: none;
+  color: white;
+}
+
+header nav .navlinks li:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=style.css.map */
