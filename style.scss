@@ -1,9 +1,14 @@
+$moderateCyan: hsl(176, 50%, 47%);
+$darkCyan: hsl(176, 72%, 28%);
+$darkGray: hsl(0, 0%, 48%);
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Commissioner", Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 16px;   
 }
+
 
 header {
     width: 100%;
@@ -18,20 +23,29 @@ header {
     box-sizing: border-box;
 
     .logo-wrapper {
-        width: 20%;
+        width: 30%;
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #menu-icon-wrapper {
+        display: none;
     }
 
     nav {
-        width: 30%;
+        width: 70%;
 
         .navlinks {
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: flex-end;
             
             li {
                 list-style: none;
+                padding-right: 2rem;
             }
             li a {
                 text-decoration: none;
@@ -43,3 +57,63 @@ header {
         }
     }
 }
+
+
+@media screen and (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 0;
+        background-image: url('./images/image-hero-mobile.jpg');
+
+        .logo-wrapper {
+            padding: 2rem;
+        }
+
+        .close {
+            display: none;
+        }
+        #menu-icon-wrapper {
+            display: block;
+            padding: 2rem 3rem 0 0;
+        }
+        #toggle:checked + label > .hamburger {
+            display: none;
+            transition: .3s;
+        }
+        #toggle:checked + label > .close {
+            display: block;
+            transition: .3s;
+        }
+        
+        .toggle-nav {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        nav {   
+            background-color: white;
+            // relative to header 
+            position: absolute; 
+            top: -100%;
+            width: 85%;
+            border-radius: 10px;
+            
+            .navlinks {
+                flex-direction: column;
+                
+                li {
+                    padding: 1rem 1.5rem; 
+                    border-bottom: 1px solid rgb(187, 187, 187);
+                }
+                li a {
+                    color: black;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    
+}
+
+
