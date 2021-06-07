@@ -2,6 +2,20 @@ $moderateCyan: hsl(176, 50%, 47%);
 $darkCyan: hsl(176, 72%, 28%);
 $darkGray: hsl(0, 0%, 48%);
 
+$headerHeight: 400px;
+
+
+@mixin roundedButton($bgColor) {
+    color: white;
+    background-color: $bgColor;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    padding: 1.1rem 2rem;
+    border-radius: 50px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,6 +26,7 @@ body {
 
 header {
     width: 100%;
+    min-height: $headerHeight;
     display: flex;
     justify-content: space-between;
     background-color: lightblue;
@@ -58,6 +73,81 @@ header {
     }
 }
 
+main {
+    width: 50%;
+    height: auto;
+    // background-color: blueviolet;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+
+}
+
+#product-card {
+    background-color: white;
+    text-align: center;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+    
+    .logo-wrapper {
+        position: absolute;
+        top: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .product-title {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .description {
+        color: $darkGray;
+        margin: 1rem 0 2rem 0;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        
+        .back-project-btn {
+            @include roundedButton($moderateCyan);
+            margin: 0 1rem;
+        }
+        .bookmark-btn {
+            @include roundedButton(rgb(235, 235, 235));
+            color: $darkGray;
+            box-sizing: border-box;
+            position: relative;
+            padding: 1rem 2rem 1rem 4rem;
+            margin: 0 1rem;
+
+            .bookmark-icon {
+                // relative to .bookmark-btn
+                position: absolute;
+                top: 0;
+                left: -14px;
+            }
+        }
+        .bookmark-icon-mobile {
+            display: none;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    main {
+        width: 70%;
+    }
+}
 
 @media screen and (max-width: 768px) {
     header {
@@ -114,6 +204,38 @@ header {
         }
     }
     
+    main {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    main {
+        width: 90%;
+    }
+
+    #product-card {
+        padding: 3rem .5rem;
+
+        .product-title {
+            font-size: 1.5rem;
+        }
+
+        .buttons {
+            justify-content: center;
+
+            .back-project-btn {
+                margin: 0 1rem 0 0;
+            }
+
+            .bookmark-btn {
+                display: none;
+            }
+            .bookmark-icon-mobile {
+                display: block;
+            }
+        }
+    }
 }
 
 

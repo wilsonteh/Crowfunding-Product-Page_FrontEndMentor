@@ -7,6 +7,7 @@ body {
 
 header {
   width: 100%;
+  min-height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,6 +65,106 @@ header nav .navlinks li:hover {
   text-decoration: underline;
 }
 
+main {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#product-card {
+  background-color: white;
+  text-align: center;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#product-card .logo-wrapper {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#product-card .product-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#product-card .description {
+  color: #7a7a7a;
+  margin: 1rem 0 2rem 0;
+}
+
+#product-card .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#product-card .buttons .back-project-btn {
+  color: white;
+  background-color: #3cb4ac;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  padding: 1.1rem 2rem;
+  border-radius: 50px;
+  margin: 0 1rem;
+}
+
+#product-card .buttons .bookmark-btn {
+  color: white;
+  background-color: #ebebeb;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  padding: 1.1rem 2rem;
+  border-radius: 50px;
+  color: #7a7a7a;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  padding: 1rem 2rem 1rem 4rem;
+  margin: 0 1rem;
+}
+
+#product-card .buttons .bookmark-btn .bookmark-icon {
+  position: absolute;
+  top: 0;
+  left: -14px;
+}
+
+#product-card .buttons .bookmark-icon-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   header {
     position: relative;
@@ -116,6 +217,35 @@ header nav .navlinks li:hover {
   header nav .navlinks li a {
     color: black;
     font-weight: 500;
+  }
+  main {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    width: 90%;
+  }
+  #product-card {
+    padding: 3rem .5rem;
+  }
+  #product-card .product-title {
+    font-size: 1.5rem;
+  }
+  #product-card .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #product-card .buttons .back-project-btn {
+    margin: 0 1rem 0 0;
+  }
+  #product-card .buttons .bookmark-btn {
+    display: none;
+  }
+  #product-card .buttons .bookmark-icon-mobile {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */
