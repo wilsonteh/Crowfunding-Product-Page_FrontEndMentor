@@ -1,8 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  height: 150vh;
   font-family: "Commissioner", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: whitesmoke;
 }
 
 header {
@@ -79,12 +81,12 @@ main {
 
 #product-card {
   background-color: white;
-  text-align: center;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
   padding: 4rem 2rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-align: center;
 }
 
 #product-card .logo-wrapper {
@@ -151,6 +153,73 @@ main {
 
 #product-card .buttons .bookmark-icon-mobile {
   display: none;
+}
+
+#backer-card {
+  background-color: white;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  margin-top: 2rem;
+  padding: 3rem 2rem;
+}
+
+#backer-card .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+#backer-card .stats .main {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#backer-card .stats .sub {
+  margin: .5rem 0 0 0;
+  color: gray;
+  font-weight: 500;
+}
+
+#backer-card .stats hr {
+  margin: 0;
+}
+
+#backer-card .slidebar-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#backer-card .slidebar-wrapper #slidebar {
+  -webkit-appearance: none;
+  width: 100%;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#ebebeb), to(#ebebeb));
+  background: linear-gradient(to right, #ebebeb 0%, #ebebeb 100%);
+  cursor: pointer;
+}
+
+#backer-card .slidebar-wrapper #slidebar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+#backer-card .slidebar-wrapper #slidebar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -220,6 +289,22 @@ main {
   }
   main {
     width: 85%;
+  }
+  #backer-card .stats {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    min-height: 300px;
+  }
+  #backer-card .slidebar-wrapper {
+    width: 100%;
   }
 }
 
