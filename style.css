@@ -28,6 +28,7 @@ header {
 
 header .logo-wrapper {
   width: 30%;
+  cursor: pointer;
 }
 
 header #toggle {
@@ -126,6 +127,11 @@ main {
   padding: 1.1rem 2rem;
   border-radius: 50px;
   margin: 0 1rem;
+  cursor: pointer;
+}
+
+#product-card .buttons .back-project-btn:hover {
+  background-color: #147b74;
 }
 
 #product-card .buttons .bookmark-btn {
@@ -143,6 +149,7 @@ main {
   position: relative;
   padding: 1rem 2rem 1rem 4rem;
   margin: 0 1rem;
+  cursor: pointer;
 }
 
 #product-card .buttons .bookmark-btn .bookmark-icon {
@@ -321,6 +328,11 @@ main {
   border: none;
   -ms-grid-column-align: end;
       justify-self: end;
+  cursor: pointer;
+}
+
+#about-card .bamboo-card .rewardBtn:hover, #about-card .black-edition-card .rewardBtn:hover, #about-card .mahogany-card .rewardBtn:hover {
+  background-color: #147b74;
 }
 
 #about-card .black-edition-card, #about-card .mahogany-card {
@@ -334,6 +346,10 @@ main {
 #about-card .mahogany-card .rewardBtn {
   color: white;
   background-color: #7a7a7a;
+}
+
+#about-card .mahogany-card .rewardBtn:hover {
+  background-color: #4d4d4d;
 }
 
 .attribution {

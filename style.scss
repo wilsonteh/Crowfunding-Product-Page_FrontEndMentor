@@ -1,5 +1,5 @@
 $moderateCyan: hsl(176, 50%, 47%);
-$darkCyan: hsl(176, 72%, 28%);
+$darkCyan: rgb(20, 123, 116);
 $darkGray: hsl(0, 0%, 48%);
 $textColor: hsl(0, 0%, 50%);
 
@@ -61,6 +61,7 @@ $headerHeight: 400px;
     border-radius: 50px;
     border: none;
     justify-self: end;
+    cursor: pointer;
 }
 
 
@@ -89,6 +90,7 @@ header {
 
     .logo-wrapper {
         width: 30%;
+        cursor: pointer;
     }
 
     #toggle {
@@ -159,6 +161,10 @@ main {
         .back-project-btn {
             @include roundedButton($moderateCyan);
             margin: 0 1rem;
+            cursor: pointer
+        }
+        .back-project-btn:hover {
+            background-color: $darkCyan
         }
         .bookmark-btn {
             @include roundedButton(hsl(0, 0%, 92%));
@@ -167,13 +173,24 @@ main {
             position: relative;
             padding: 1rem 2rem 1rem 4rem;
             margin: 0 1rem;
+            cursor: pointer;
 
             .bookmark-icon {
                 // relative to .bookmark-btn
                 position: absolute;
                 top: 0;
-                left: -14px;
+                left: -14px;;
+
+                // #circle {
+                //     fill: $darkCyan;
+                // }
+                // #icon {
+                //     fill: ;
+                // }
             }
+        }
+        #bkmkToggle {
+            // display: none;
         }
         .bookmark-icon-mobile {
             display: none;
@@ -288,6 +305,9 @@ main {
             grid-area: rewardBtn;
             @include rewardCardRewardBtn();
         }
+        .rewardBtn:hover {
+            background-color: $darkCyan;
+        }
     }
     .black-edition-card, .mahogany-card {
         margin-top: 2rem;
@@ -298,6 +318,9 @@ main {
         .rewardBtn {
             color: white;
             background-color: $darkGray;
+        }
+        .rewardBtn:hover {
+            background-color: hsl(0, 0, 30%);
         }
     }
 }
