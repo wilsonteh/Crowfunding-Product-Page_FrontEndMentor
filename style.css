@@ -222,6 +222,125 @@ main {
   height: 20px;
 }
 
+#about-card {
+  background-color: white;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+#about-card .about-wrapper .title {
+  margin: 0;
+}
+
+#about-card .about-wrapper .description {
+  margin: 2rem 0;
+  line-height: 1.8rem;
+  color: gray;
+  text-align: justify;
+}
+
+#about-card .bamboo-card, #about-card .black-edition-card, #about-card .mahogany-card {
+  background-color: white;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "title . pledge" "description description description" "num-left . rewardBtn";
+  justify-items: start;
+}
+
+#about-card .bamboo-card .title, #about-card .black-edition-card .title, #about-card .mahogany-card .title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+#about-card .bamboo-card .pledge, #about-card .black-edition-card .pledge, #about-card .mahogany-card .pledge {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: pledge;
+  color: #3cb4ac;
+  font-weight: 500;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+#about-card .bamboo-card .description, #about-card .black-edition-card .description, #about-card .mahogany-card .description {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: description;
+  text-align: justify;
+  line-height: 1.8rem;
+  color: gray;
+}
+
+#about-card .bamboo-card .num-left, #about-card .black-edition-card .num-left, #about-card .mahogany-card .num-left {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: num-left;
+  color: gray;
+}
+
+#about-card .bamboo-card .num-left .num, #about-card .black-edition-card .num-left .num, #about-card .mahogany-card .num-left .num {
+  color: black;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#about-card .bamboo-card .rewardBtn, #about-card .black-edition-card .rewardBtn, #about-card .mahogany-card .rewardBtn {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: rewardBtn;
+  color: white;
+  background-color: #3cb4ac;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+#about-card .black-edition-card, #about-card .mahogany-card {
+  margin-top: 2rem;
+}
+
+#about-card .mahogany-card {
+  opacity: .5;
+}
+
+#about-card .mahogany-card .rewardBtn {
+  color: white;
+  background-color: #7a7a7a;
+}
+
+.attribution {
+  text-align: center;
+  margin: 1rem 0 3rem 0;
+}
+
 @media screen and (max-width: 1200px) {
   main {
     width: 60%;
@@ -305,6 +424,21 @@ main {
   }
   #backer-card .slidebar-wrapper {
     width: 100%;
+  }
+  #about-card .bamboo-card, #about-card .black-edition-card, #about-card .mahogany-card {
+    -ms-grid-columns: auto 1fr;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "title ." "pledge ." "description description" "num-left ."  "rewardBtn .";
+  }
+  #about-card .bamboo-card .pledge, #about-card .black-edition-card .pledge, #about-card .mahogany-card .pledge {
+    -ms-grid-column-align: start;
+        justify-self: start;
+    margin-top: .5rem;
+  }
+  #about-card .bamboo-card .rewardBtn, #about-card .black-edition-card .rewardBtn, #about-card .mahogany-card .rewardBtn {
+    -ms-grid-column-align: start;
+        justify-self: start;
+    margin-top: 2rem;
   }
 }
 

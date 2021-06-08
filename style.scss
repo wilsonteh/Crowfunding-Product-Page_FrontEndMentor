@@ -1,6 +1,7 @@
 $moderateCyan: hsl(176, 50%, 47%);
 $darkCyan: hsl(176, 72%, 28%);
 $darkGray: hsl(0, 0%, 48%);
+$textColor: hsl(0, 0%, 50%);
 
 $headerHeight: 400px;
 
@@ -22,6 +23,46 @@ $headerHeight: 400px;
     padding: 1.1rem 2rem;
     border-radius: 50px;
 }
+
+@mixin rewardCardGrid {
+    padding: 2rem;   
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 
+    "title . pledge"
+    "description description description"
+    "num-left . rewardBtn";
+    justify-items: start;
+}
+
+@mixin rewardCardTitle {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+@mixin rewardCardPledge {
+    color: $moderateCyan;
+    font-weight: 500;
+    justify-self: end;
+}
+
+@mixin rewardCardDescription {
+    text-align: justify;
+    line-height: 1.8rem;
+    color: $textColor;
+}
+
+@mixin rewardCardRewardBtn {
+    color: white;
+    background-color: $moderateCyan;
+    font-family: inherit;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    justify-self: end;
+}
+
 
 body {
     margin: 0;
@@ -91,7 +132,6 @@ main {
     left: 50%;
     transform: translateX(-50%);
     box-sizing: border-box;
-
 }
 
 #product-card {
@@ -161,7 +201,7 @@ main {
         }
         .sub {
             margin: .5rem 0 0 0;
-            color: hsl(0, 0%, 50%);
+            color: $textColor;
             font-weight: 500;
         }
 
@@ -196,6 +236,76 @@ main {
             height: 20px;
         }
     }
+}
+
+#about-card {
+    @include card();
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 2rem;
+
+    .about-wrapper {
+        
+        .title {
+            margin: 0;
+        }
+        .description {
+            margin: 2rem 0;
+            line-height: 1.8rem;
+            color: $textColor;
+            text-align: justify;
+        }
+    }
+    .bamboo-card, .black-edition-card, .mahogany-card {
+        @include card();
+        @include rewardCardGrid();
+        
+        .title {
+            grid-area: title;
+            @include rewardCardTitle();
+        }
+        .pledge {
+            grid-area: pledge;
+            @include rewardCardPledge();
+            
+        }
+        .description {
+            grid-area: description;
+            @include rewardCardDescription();
+        }
+        .num-left {
+            grid-area: num-left;
+            color: $textColor;
+
+            .num {
+                color: black;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+        }
+        .rewardBtn {
+            grid-area: rewardBtn;
+            @include rewardCardRewardBtn();
+        }
+    }
+    .black-edition-card, .mahogany-card {
+        margin-top: 2rem;
+    }
+    .mahogany-card {
+        opacity: .5;
+        
+        .rewardBtn {
+            color: white;
+            background-color: $darkGray;
+        }
+    }
+}
+
+.attribution {
+    text-align: center;
+    margin: 1rem 0 3rem 0;
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -281,7 +391,29 @@ main {
             width: 100%;
         }
     }
+    
+    #about-card {
+        
+        .bamboo-card, .black-edition-card, .mahogany-card {
+            grid-template-columns: auto 1fr;
+            grid-template-areas: 
+            "title ."
+            "pledge ."
+            "description description"
+            "num-left ." 
+            "rewardBtn .";
+            
+            .pledge {
+                justify-self: start;
+                margin-top: .5rem;
+            }
+            .rewardBtn {
+                justify-self: start;
+                margin-top: 2rem;
+            }
+        }
 
+    }
 }
 
 @media screen and (max-width: 576px) {
