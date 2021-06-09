@@ -4,6 +4,7 @@ const body = document.body;
 const toggle = body.querySelector('#toggle');
 const slidebar = body.querySelector('#slidebar');
 const bookmarkBtn = body.querySelector('.bookmark-btn');
+const bookmarkIconMobile = body.querySelector('.bookmark-icon-mobile');
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
@@ -66,10 +67,29 @@ function bookmarkToggle(bkmkBtn) {
     }
 }
 
+function bookmarkToggleMobile(bkmkIcon) {
+    let circleBgColor = window.getComputedStyle(bkmkIcon.children[0].children[0]).fill;
+    let circle = bkmkIcon.children[0].children[0];
+
+    // to bookmark
+    if (circleBgColor === 'rgb(47, 47, 47)') {
+        circle.style.fill = darkCyan;
+        circle.nextElementSibling.style.fill = 'white';
+    } // to un-bookmark
+    else if (circleBgColor === 'rgb(20, 123, 116)') {
+        circle.style.fill = 'rgb(47, 47, 47)';
+        circle.nextElementSibling.style.fill = 'rgb(177, 177, 177)';
+    }
+}
 
 slidebarColor(slidebar);
+
 toggle.addEventListener('change', toggleNav)
+
 bookmarkBtn.addEventListener('click', function callbackParams() {
     bookmarkToggle(this);
 });
 
+bookmarkIconMobile.addEventListener('click', function callbackParams() {
+    bookmarkToggleMobile(this);
+})
