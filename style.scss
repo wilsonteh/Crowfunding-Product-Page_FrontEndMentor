@@ -7,7 +7,7 @@ $headerHeight: 400px;
 
 @mixin card {
     background-color: white;
-    border: 1px solid rgb(226, 226, 226);
+    border: 1px solid hsl(0, 0%, 89%);
     border-radius: 10px;
     padding: 4rem 2rem;
     box-sizing: border-box
@@ -24,7 +24,7 @@ $headerHeight: 400px;
     border-radius: 50px;
 }
 
-@mixin rewardCardGrid {
+@mixin rewardCard {
     padding: 2rem;   
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -61,6 +61,20 @@ $headerHeight: 400px;
     border-radius: 50px;
     border: none;
     justify-self: end;
+    cursor: pointer;
+}
+
+@mixin modalCard {
+    padding: 2rem;   
+    border: 1px hsl(0, 0%, 89%) solid;
+    display: grid;
+    grid-template-columns: 50px auto auto 1fr auto;
+    grid-template-rows: 30px auto;
+    grid-template-areas: 
+    "radio title pledge . num-left"
+    ". descr descr descr descr";
+    justify-items: start;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -276,7 +290,7 @@ main {
     }
     .bamboo-card, .black-edition-card, .mahogany-card {
         @include card();
-        @include rewardCardGrid();
+        @include rewardCard();
         
         .title {
             grid-area: title;
@@ -329,6 +343,93 @@ main {
     text-align: center;
     margin: 1rem 0 3rem 0;
 
+}
+
+.toggle-modal-card {
+    // to override display: none as it has higher specificality
+    display: block !important;
+}
+
+#modal-card {
+    @include card();
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3rem;
+    z-index: 2;
+    display: none;
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .description {
+        color: $textColor;
+    }
+    .icon-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+
+    // for first card with slightly diff grid layout than the rest
+    .card-first {
+        @include modalCard();
+        // ! overwritten columns and areas // 
+        grid-template-columns: 50px auto 1fr;
+        grid-template-rows: 30px auto;
+        grid-template-areas: 
+        "radio title . "
+        ". descr descr";
+    }
+    .card, .card-last {
+        @include modalCard();
+    }
+    .card-first, .card, .card-last {
+        margin-top: 1.5rem;
+
+        #reward-radio-1, #reward-radio-2, #reward-radio-3, #reward-radio-4 {
+            grid-area: radio;
+            width: 22px;
+            height: 22px;
+            margin: 0;
+            justify-self: start;
+            align-self: center;
+            // opacity: .4;
+        }
+        .title {
+            grid-area: title;
+            font-size: 1rem;
+        }
+        .pledge {
+            grid-area: pledge;
+            color: $moderateCyan;
+            font-weight: 500;
+            margin-left: 1rem;
+        }
+        .num-left {
+            grid-area: num-left;
+            color: $textColor;
+            
+            .num {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: black;
+                margin-right: .5rem;
+            }
+        }
+        .description {
+            grid-area: descr;
+            line-height: 1.8rem;
+            text-align: justify;
+            margin: 0;
+        }
+    }
+    .card-last {
+        opacity: .7;
+    }
 }
 
 @media screen and (max-width: 1200px) {

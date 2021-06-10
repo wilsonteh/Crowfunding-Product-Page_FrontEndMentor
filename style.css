@@ -82,7 +82,7 @@ main {
 
 #product-card {
   background-color: white;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e3e3e3;
   border-radius: 10px;
   padding: 4rem 2rem;
   -webkit-box-sizing: border-box;
@@ -164,7 +164,7 @@ main {
 
 #backer-card {
   background-color: white;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e3e3e3;
   border-radius: 10px;
   padding: 4rem 2rem;
   -webkit-box-sizing: border-box;
@@ -231,7 +231,7 @@ main {
 
 #about-card {
   background-color: white;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e3e3e3;
   border-radius: 10px;
   padding: 4rem 2rem;
   -webkit-box-sizing: border-box;
@@ -260,7 +260,7 @@ main {
 
 #about-card .bamboo-card, #about-card .black-edition-card, #about-card .mahogany-card {
   background-color: white;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e3e3e3;
   border-radius: 10px;
   padding: 4rem 2rem;
   -webkit-box-sizing: border-box;
@@ -276,7 +276,7 @@ main {
 
 #about-card .bamboo-card .title, #about-card .black-edition-card .title, #about-card .mahogany-card .title {
   -ms-grid-row: 1;
-  -ms-grid-column: 1;
+  -ms-grid-column: 2;
   grid-area: title;
   font-size: 1.2rem;
   margin: 0;
@@ -288,7 +288,6 @@ main {
   grid-area: pledge;
   color: #3cb4ac;
   font-weight: 500;
-  -ms-grid-column-align: end;
       justify-self: end;
 }
 
@@ -303,8 +302,8 @@ main {
 }
 
 #about-card .bamboo-card .num-left, #about-card .black-edition-card .num-left, #about-card .mahogany-card .num-left {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
   grid-area: num-left;
   color: gray;
 }
@@ -355,6 +354,139 @@ main {
 .attribution {
   text-align: center;
   margin: 1rem 0 3rem 0;
+}
+
+.toggle-modal-card {
+  display: block !important;
+}
+
+#modal-card {
+  background-color: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 3rem;
+  z-index: 2;
+  display: none;
+}
+
+#modal-card .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#modal-card .description {
+  color: gray;
+}
+
+#modal-card .icon-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+#modal-card .card-first {
+  padding: 2rem;
+  border: 1px #e3e3e3 solid;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px auto auto 1fr auto;
+      grid-template-columns: 50px auto auto 1fr auto;
+  -ms-grid-rows: 30px auto;
+      grid-template-rows: 30px auto;
+      grid-template-areas: "radio title pledge . num-left" ". descr descr descr descr";
+  justify-items: start;
+  border-radius: 10px;
+  cursor: pointer;
+  -ms-grid-columns: 50px auto 1fr;
+      grid-template-columns: 50px auto 1fr;
+  grid-template-rows: 30px auto;
+      grid-template-areas: "radio title . " ". descr descr";
+}
+
+#modal-card .card, #modal-card .card-last {
+  padding: 2rem;
+  border: 1px #e3e3e3 solid;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px auto auto 1fr auto;
+      grid-template-columns: 50px auto auto 1fr auto;
+  -ms-grid-rows: 30px auto;
+      grid-template-rows: 30px auto;
+      grid-template-areas: "radio title pledge . num-left" ". descr descr descr descr";
+  justify-items: start;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#modal-card .card-first, #modal-card .card, #modal-card .card-last {
+  margin-top: 1.5rem;
+}
+
+#modal-card .card-first #reward-radio-1, #modal-card .card-first #reward-radio-2, #modal-card .card-first #reward-radio-3, #modal-card .card-first #reward-radio-4, #modal-card .card #reward-radio-1, #modal-card .card #reward-radio-2, #modal-card .card #reward-radio-3, #modal-card .card #reward-radio-4, #modal-card .card-last #reward-radio-1, #modal-card .card-last #reward-radio-2, #modal-card .card-last #reward-radio-3, #modal-card .card-last #reward-radio-4 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: radio;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#modal-card .card-first .title, #modal-card .card .title, #modal-card .card-last .title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: title;
+  font-size: 1rem;
+}
+
+#modal-card .card-first .pledge, #modal-card .card .pledge, #modal-card .card-last .pledge {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: pledge;
+  color: #3cb4ac;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+#modal-card .card-first .num-left, #modal-card .card .num-left, #modal-card .card-last .num-left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: num-left;
+  color: gray;
+}
+
+#modal-card .card-first .num-left .num, #modal-card .card .num-left .num, #modal-card .card-last .num-left .num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+  margin-right: .5rem;
+}
+
+#modal-card .card-first .description, #modal-card .card .description, #modal-card .card-last .description {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: descr;
+  line-height: 1.8rem;
+  text-align: justify;
+  margin: 0;
+}
+
+#modal-card .card-last {
+  opacity: .7;
 }
 
 @media screen and (max-width: 1200px) {

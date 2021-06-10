@@ -1,10 +1,12 @@
 const body = document.body;
 
-
 const toggle = body.querySelector('#toggle');
 const slidebar = body.querySelector('#slidebar');
 const bookmarkBtn = body.querySelector('.bookmark-btn');
 const bookmarkIconMobile = body.querySelector('.bookmark-icon-mobile');
+const backProjectBtn = body.querySelector('.back-project-btn');
+const modalCloseIcon = body.querySelector('.icon-close');
+
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
@@ -13,6 +15,8 @@ const darkGray = 'hsl(0, 0%, 48%)';
 // console.log(bookmarkBtn);
 // console.dir(toggle)
 
+
+// TODO ALL FUNCTIONS DEFINED HERE // 
 function callbackParams(callback) {
     callback();
 }
@@ -82,6 +86,22 @@ function bookmarkToggleMobile(bkmkIcon) {
     }
 }
 
+function openModalCard() {
+    const modalCard = body.querySelector('#modal-card');
+    modalCard.classList.toggle('toggle-modal-card');
+    console.log("open modal card");
+}
+
+function closeModalCard() {
+    const modalCard = body.querySelector('#modal-card');
+    modalCard.classList.toggle('toggle-modal-card');
+    console.log("close modal card");
+}
+// TODO ====================== // 
+
+
+
+
 slidebarColor(slidebar);
 
 toggle.addEventListener('change', toggleNav)
@@ -93,3 +113,6 @@ bookmarkBtn.addEventListener('click', function callbackParams() {
 bookmarkIconMobile.addEventListener('click', function callbackParams() {
     bookmarkToggleMobile(this);
 })
+
+backProjectBtn.addEventListener('click', openModalCard);
+modalCloseIcon.addEventListener('click', closeModalCard);
