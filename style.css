@@ -7,6 +7,16 @@ body {
   background-color: whitesmoke;
 }
 
+#overlay {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  opacity: .5;
+  position: fixed;
+  display: none;
+  z-index: 1;
+}
+
 header {
   width: 100%;
   min-height: 400px;

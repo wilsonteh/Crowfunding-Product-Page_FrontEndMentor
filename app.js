@@ -88,14 +88,18 @@ function bookmarkToggleMobile(bkmkIcon) {
 
 function openModalCard() {
     const modalCard = body.querySelector('#modal-card');
+    const overlay = body.querySelector('#overlay');
+    
     modalCard.classList.toggle('toggle-modal-card');
-    console.log("open modal card");
+    overlay.style.display = 'block';
 }
 
 function closeModalCard() {
     const modalCard = body.querySelector('#modal-card');
+    const overlay = body.querySelector('#overlay');
+    
     modalCard.classList.toggle('toggle-modal-card');
-    console.log("close modal card");
+    overlay.style.display = 'none';
 }
 // TODO ====================== // 
 
