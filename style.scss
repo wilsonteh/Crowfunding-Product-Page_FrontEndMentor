@@ -469,7 +469,8 @@ main {
         margin-top: 1.5rem;
         
         .radio {
-            display: none;
+            position: absolute;
+            visibility: hidden;
         }
         .check {
             grid-area: radio;

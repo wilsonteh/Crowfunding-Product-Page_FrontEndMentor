@@ -522,7 +522,8 @@ main {
 }
 
 #modal-card .card-first .radio, #modal-card .card .radio, #modal-card .card-last .radio {
-  display: none;
+  position: absolute;
+  visibility: hidden;
 }
 
 #modal-card .card-first .check, #modal-card .card .check, #modal-card .card-last .check {
