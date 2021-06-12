@@ -384,6 +384,8 @@ main {
     }
     .description {
         color: $textColor;
+        line-height: 1.5rem;
+        text-align: justify;
     }
 
     // for first card with slightly diff grid layout than the rest
@@ -512,11 +514,47 @@ main {
     main {
         width: 60%;
     }
+    #modal-card {
+        width: 60%;
+    }
 }
 
 @media screen and (max-width: 992px) {
     main {
         width: 70%;
+    }
+    #modal-card {
+        width: 70%;
+
+        .card-first .pledge-info {
+            .title {
+                align-self: center;
+            }
+
+            .description {
+                margin-top: 1rem;
+            }
+        }
+
+        .card, .card-last {    
+            .pledge-info {
+                grid-template-columns: 40px auto;
+                grid-template-areas:    
+                "radio title . num-left"
+                "radio pledge . num-left"   
+                ". descr descr descr";
+
+                .title, .num-left {
+                    align-self: center;
+                }
+                .pledge {
+                    margin: 0;
+                }
+                .description {
+                    margin-top: 2rem;
+                }
+            }
+        }
     }
 }
 
@@ -614,6 +652,67 @@ main {
         }
 
     }
+
+    #modal-card {
+        padding: 1.5rem;
+        width: 85%;
+
+        .description {
+            margin: 2rem 0;
+            
+        }
+
+        .card-first .pledge-info {
+            grid-template-columns: 40px auto;
+            grid-template-areas: 
+            "radio title"
+            "descr descr";
+            padding: 1.5rem;
+
+            .title {
+                justify-self: start;
+            }
+        }
+
+        .card .pledge-info, .card-last .pledge-info {
+            grid-template-columns: 40px auto;
+            grid-template-areas: 
+            "radio title title"
+            "radio pledge pledge"
+            "descr descr descr"
+            "num-left num-left.";
+            padding: 1.5rem;
+
+            .title {
+                justify-self: start;
+                align-self: center;
+            }
+            .description {
+                margin-top: 2rem;
+            }
+            .num-left {
+                margin-top: 1.5rem;
+            }
+        }
+
+        .card .pledge-amount, .card-last .pledge-amount {
+            grid-template-columns: auto auto;
+            grid-template-areas: 
+            "pledge-text pledge-text"
+            "input continueBtn";
+            
+            .text {
+                justify-self: center;
+                margin-top: 0;
+            }
+            .input-wrapper {
+                justify-self: end;
+            }
+            .continueBtn {
+                justify-self: start;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -642,6 +741,10 @@ main {
                 display: block;
             }
         }
+    }
+
+    #modal-card {
+        width: 90%;
     }
 }
 

@@ -399,6 +399,8 @@ main {
 
 #modal-card .description {
   color: gray;
+  line-height: 1.5rem;
+  text-align: justify;
 }
 
 #modal-card .card-first {
@@ -581,11 +583,41 @@ main {
   main {
     width: 60%;
   }
+  #modal-card {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 992px) {
   main {
     width: 70%;
+  }
+  #modal-card {
+    width: 70%;
+  }
+  #modal-card .card-first .pledge-info .title {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  #modal-card .card-first .pledge-info .description {
+    margin-top: 1rem;
+  }
+  #modal-card .card .pledge-info, #modal-card .card-last .pledge-info {
+    -ms-grid-columns: 40px auto;
+        grid-template-columns: 40px auto;
+        grid-template-areas: "radio title . num-left" "radio pledge . num-left"    ". descr descr descr";
+  }
+  #modal-card .card .pledge-info .title, #modal-card .card .pledge-info .num-left, #modal-card .card-last .pledge-info .title, #modal-card .card-last .pledge-info .num-left {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  #modal-card .card .pledge-info .pledge, #modal-card .card-last .pledge-info .pledge {
+    margin: 0;
+  }
+  #modal-card .card .pledge-info .description, #modal-card .card-last .pledge-info .description {
+    margin-top: 2rem;
   }
 }
 
@@ -676,6 +708,60 @@ main {
         justify-self: start;
     margin-top: 2rem;
   }
+  #modal-card {
+    padding: 1.5rem;
+    width: 85%;
+  }
+  #modal-card .description {
+    margin: 2rem 0;
+  }
+  #modal-card .card-first .pledge-info {
+    -ms-grid-columns: 40px auto;
+        grid-template-columns: 40px auto;
+        grid-template-areas: "radio title" "descr descr";
+    padding: 1.5rem;
+  }
+  #modal-card .card-first .pledge-info .title {
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
+  #modal-card .card .pledge-info, #modal-card .card-last .pledge-info {
+    -ms-grid-columns: 40px auto;
+        grid-template-columns: 40px auto;
+        grid-template-areas: "radio title title" "radio pledge pledge" "descr descr descr" "num-left num-left.";
+    padding: 1.5rem;
+  }
+  #modal-card .card .pledge-info .title, #modal-card .card-last .pledge-info .title {
+    -ms-grid-column-align: start;
+        justify-self: start;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  #modal-card .card .pledge-info .description, #modal-card .card-last .pledge-info .description {
+    margin-top: 2rem;
+  }
+  #modal-card .card .pledge-info .num-left, #modal-card .card-last .pledge-info .num-left {
+    margin-top: 1.5rem;
+  }
+  #modal-card .card .pledge-amount, #modal-card .card-last .pledge-amount {
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+        grid-template-areas: "pledge-text pledge-text" "input continueBtn";
+  }
+  #modal-card .card .pledge-amount .text, #modal-card .card-last .pledge-amount .text {
+    -ms-grid-column-align: center;
+        justify-self: center;
+    margin-top: 0;
+  }
+  #modal-card .card .pledge-amount .input-wrapper, #modal-card .card-last .pledge-amount .input-wrapper {
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  #modal-card .card .pledge-amount .continueBtn, #modal-card .card-last .pledge-amount .continueBtn {
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -701,6 +787,9 @@ main {
   }
   #product-card .buttons .bookmark-icon-mobile {
     display: block;
+  }
+  #modal-card {
+    width: 90%;
   }
 }
 /*# sourceMappingURL=style.css.map */
