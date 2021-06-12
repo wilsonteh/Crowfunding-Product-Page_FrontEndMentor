@@ -65,8 +65,12 @@ $headerHeight: 400px;
 }
 
 @mixin modalCard {
-    padding: 2rem;   
+    border-radius: 10px;
+    cursor: pointer;
     border: 1px hsl(0, 0%, 89%) solid;
+}
+
+@mixin pledgeInfo {
     display: grid;
     grid-template-columns: 50px auto auto 1fr auto;
     grid-template-rows: 30px auto;
@@ -74,8 +78,7 @@ $headerHeight: 400px;
     "radio title pledge . num-left"
     ". descr descr descr descr";
     justify-items: start;
-    border-radius: 10px;
-    cursor: pointer;
+    padding: 2rem;    
 }
 
 
@@ -94,8 +97,8 @@ body {
     height: 100vh;
     opacity: .5;
     position: fixed;
-    display: none;
     z-index: 1;
+    // display: none;
 }
 
 header {
@@ -367,8 +370,14 @@ main {
     transform: translateX(-50%);
     padding: 3rem;
     z-index: 2;
-    display: none;
+    // display: none;
 
+    .icon-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
     .title {
         font-size: 1.5rem;
         font-weight: 700;
@@ -376,29 +385,87 @@ main {
     .description {
         color: $textColor;
     }
-    .icon-close {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        cursor: pointer;
-    }
 
     // for first card with slightly diff grid layout than the rest
     .card-first {
         @include modalCard();
-        // ! overwritten columns and areas // 
-        grid-template-columns: 50px auto 1fr;
-        grid-template-rows: 30px auto;
-        grid-template-areas: 
-        "radio title . "
-        ". descr descr";
+        
+        .pledge-info {
+            @include pledgeInfo();
+            // ! overwritten columns and areas // 
+            grid-template-columns: 50px auto 1fr;
+            grid-template-rows: 30px auto;
+            grid-template-areas: 
+            "radio title . "
+            ". descr descr";
+        }
+        
     }
     .card, .card-last {
         @include modalCard();
+        
+        .pledge-info {
+            @include pledgeInfo();
+        }
+        .pledge-amount {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            grid-template-areas: 
+            "pledge-text . input continueBtn";
+            align-items: center;
+            border-top: 2px solid hsl(0, 0%, 89%);
+            padding: 1.5rem;
+            box-sizing: border-box;
+
+            .text {
+                grid-area: pledge-text;
+                color: $textColor;
+            }
+            .input-wrapper {
+                grid-area: input;
+                width: 100px;
+                height: 50px;
+                background-color: white;
+                border: 1px solid hsl(0, 0%, 89%);
+                border-radius: 50px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1rem;
+                padding: 2px;
+                
+                .prefix {
+                    color: $textColor;
+                    margin: 0 .5rem 0 1rem;
+                }
+                .pledge-input {
+                    width: 50%;
+                    border: none;
+                    outline: none;
+                    font-weight: 700;
+                    font-family: inherit;
+                    &:focus {
+                        // border-bottom: 1px solid black;
+                    }
+                }
+            }
+            .continueBtn {
+                grid-area: continueBtn;
+                background-color: $moderateCyan;
+                border: none;
+                border-radius: 50px;
+                color: white;
+                font-weight: 500;
+                font-family: inherit;
+                padding: 1rem 1.5rem;
+                box-sizing: border-box;
+            }
+        }
     }
     .card-first, .card, .card-last {
         margin-top: 1.5rem;
-
+        
         #reward-radio-1, #reward-radio-2, #reward-radio-3, #reward-radio-4 {
             grid-area: radio;
             width: 22px;

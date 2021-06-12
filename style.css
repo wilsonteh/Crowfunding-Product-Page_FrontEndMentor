@@ -13,7 +13,6 @@ body {
   height: 100vh;
   opacity: .5;
   position: fixed;
-  display: none;
   z-index: 1;
 }
 
@@ -384,7 +383,13 @@ main {
           transform: translateX(-50%);
   padding: 3rem;
   z-index: 2;
-  display: none;
+}
+
+#modal-card .icon-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
 }
 
 #modal-card .title {
@@ -396,16 +401,13 @@ main {
   color: gray;
 }
 
-#modal-card .icon-close {
-  position: absolute;
-  top: 30px;
-  right: 30px;
+#modal-card .card-first {
+  border-radius: 10px;
   cursor: pointer;
+  border: 1px #e3e3e3 solid;
 }
 
-#modal-card .card-first {
-  padding: 2rem;
-  border: 1px #e3e3e3 solid;
+#modal-card .card-first .pledge-info {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50px auto auto 1fr auto;
@@ -414,8 +416,7 @@ main {
       grid-template-rows: 30px auto;
       grid-template-areas: "radio title pledge . num-left" ". descr descr descr descr";
   justify-items: start;
-  border-radius: 10px;
-  cursor: pointer;
+  padding: 2rem;
   -ms-grid-columns: 50px auto 1fr;
       grid-template-columns: 50px auto 1fr;
   grid-template-rows: 30px auto;
@@ -423,8 +424,12 @@ main {
 }
 
 #modal-card .card, #modal-card .card-last {
-  padding: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
   border: 1px #e3e3e3 solid;
+}
+
+#modal-card .card .pledge-info, #modal-card .card-last .pledge-info {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50px auto auto 1fr auto;
@@ -433,8 +438,81 @@ main {
       grid-template-rows: 30px auto;
       grid-template-areas: "radio title pledge . num-left" ". descr descr descr descr";
   justify-items: start;
-  border-radius: 10px;
-  cursor: pointer;
+  padding: 2rem;
+}
+
+#modal-card .card .pledge-amount, #modal-card .card-last .pledge-amount {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto auto;
+      grid-template-columns: auto 1fr auto auto;
+      grid-template-areas: "pledge-text . input continueBtn";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 2px solid #e3e3e3;
+  padding: 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#modal-card .card .pledge-amount .text, #modal-card .card-last .pledge-amount .text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: pledge-text;
+  color: gray;
+}
+
+#modal-card .card .pledge-amount .input-wrapper, #modal-card .card-last .pledge-amount .input-wrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: input;
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1rem;
+  padding: 2px;
+}
+
+#modal-card .card .pledge-amount .input-wrapper .prefix, #modal-card .card-last .pledge-amount .input-wrapper .prefix {
+  color: gray;
+  margin: 0 .5rem 0 1rem;
+}
+
+#modal-card .card .pledge-amount .input-wrapper .pledge-input, #modal-card .card-last .pledge-amount .input-wrapper .pledge-input {
+  width: 50%;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+#modal-card .card .pledge-amount .continueBtn, #modal-card .card-last .pledge-amount .continueBtn {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: continueBtn;
+  background-color: #3cb4ac;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 1rem 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #modal-card .card-first, #modal-card .card, #modal-card .card-last {
