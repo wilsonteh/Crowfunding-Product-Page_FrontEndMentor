@@ -521,18 +521,34 @@ main {
   margin-top: 1.5rem;
 }
 
-#modal-card .card-first #reward-radio-1, #modal-card .card-first #reward-radio-2, #modal-card .card-first #reward-radio-3, #modal-card .card-first #reward-radio-4, #modal-card .card #reward-radio-1, #modal-card .card #reward-radio-2, #modal-card .card #reward-radio-3, #modal-card .card #reward-radio-4, #modal-card .card-last #reward-radio-1, #modal-card .card-last #reward-radio-2, #modal-card .card-last #reward-radio-3, #modal-card .card-last #reward-radio-4 {
+#modal-card .card-first .radio, #modal-card .card .radio, #modal-card .card-last .radio {
+  display: none;
+}
+
+#modal-card .card-first .check, #modal-card .card .check, #modal-card .card-last .check {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: radio;
-  width: 22px;
-  height: 22px;
-  margin: 0;
-  -ms-grid-column-align: start;
-      justify-self: start;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+
+#modal-card .card-first .radio:checked + .check::before, #modal-card .card .radio:checked + .check::before, #modal-card .card-last .radio:checked + .check::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background-color: #3cb4ac;
+  border-radius: 50%;
 }
 
 #modal-card .card-first .title, #modal-card .card .title, #modal-card .card-last .title {

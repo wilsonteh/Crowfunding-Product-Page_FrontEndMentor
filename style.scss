@@ -385,7 +385,7 @@ main {
     .description {
         color: $textColor;
         line-height: 1.5rem;
-        text-align: justify;
+        text-align: justify; 
     }
 
     // for first card with slightly diff grid layout than the rest
@@ -468,15 +468,32 @@ main {
     .card-first, .card, .card-last {
         margin-top: 1.5rem;
         
-        #reward-radio-1, #reward-radio-2, #reward-radio-3, #reward-radio-4 {
-            grid-area: radio;
-            width: 22px;
-            height: 22px;
-            margin: 0;
-            justify-self: start;
-            align-self: center;
-            // opacity: .4;
+        .radio {
+            display: none;
         }
+        .check {
+            grid-area: radio;
+            width: 25px;
+            height: 25px;   
+            // background-color: white;  
+            border: 1px solid hsl(0, 0%, 85%);
+            border-radius: 50%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .radio:checked + .check::before {
+            content: "";
+            position: absolute;
+            // relative to .check
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background-color: $moderateCyan;
+            border-radius: 50%;
+        }
+
         .title {
             grid-area: title;
             font-size: 1rem;
