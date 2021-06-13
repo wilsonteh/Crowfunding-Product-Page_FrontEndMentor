@@ -6,15 +6,15 @@ const bookmarkBtn = body.querySelector('.bookmark-btn');
 const bookmarkIconMobile = body.querySelector('.bookmark-icon-mobile');
 const backProjectBtn = body.querySelector('.back-project-btn');
 const modalCloseIcon = body.querySelector('.icon-close');
+const checkboxArr = body.querySelectorAll('.checkbox');
 
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
 const darkGray = 'hsl(0, 0%, 48%)';
 
-// console.log(bookmarkBtn);
+// console.log(checkedArr);
 // console.dir(toggle)
-
 
 // TODO ALL FUNCTIONS DEFINED HERE // 
 function callbackParams(callback) {
@@ -101,10 +101,56 @@ function closeModalCard() {
     modalCard.classList.toggle('toggle-modal-card');
     overlay.style.display = 'none';
 }
-// TODO ====================== // 
+
+function toggleRewardCardFocus(checkbox) {
+    // access card corresponding to the checkbox
+    const card = checkbox.parentElement.parentElement;
+    const pledgeAmtDiv = checkbox.parentElement.nextElementSibling;
+
+    if (checkbox.checked) {
+        card.style.border = `3px solid ${moderateCyan}`;
+        pledgeAmtDiv.style.display = 'grid';
+        
+    } else if (!checkbox.checked) {
+        card.style.border = '1px solid hsl(0, 0%, 89%)';
+        pledgeAmtDiv.style.display = 'none';
+    }
+}
+
+
+function checkboxRules(checkbox) {
+    // TODO
+    // dont let user select > 1 card  
+    // selecting a new card will unselect the prev selected card 
+    const card = checkbox.parentElement.parentElement;
+    const pledgeAmtDiv = checkbox.parentElement.nextElementSibling;
+
+    if (checkbox.checked) {
+        selectedCard.push(card);
+        checkboxes.push(checkbox);
+        pledgeAmtDivs.push(pledgeAmtDiv);
+        
+
+        if (selectedCard.length > 1 && checkboxes.length > 1 && pledgeAmtDivs.length > 1) {
+            // unselect the previously selected card
+            selectedCard[0].style.border = '1px solid hsl(0, 0%, 89%)';
+            checkboxes[0].checked = false
+            pledgeAmtDivs[0].style.display = 'none'
+            // remove first element
+            selectedCard = selectedCard.filter((card, i) => i === selectedCard.length-1)
+            checkboxes = checkboxes.filter((card, i) => i === checkboxes.length-1)
+            pledgeAmtDivs = pledgeAmtDivs.filter((card, i) => i === pledgeAmtDivs.length-1)
+        } 
+    } else {
+        selectedCard.pop();
+        checkboxes.pop();
+        pledgeAmtDivs.pop();
+    }
+}
 
 
 
+// TODO Execute Actions ====================== // 
 
 slidebarColor(slidebar);
 
@@ -120,3 +166,13 @@ bookmarkIconMobile.addEventListener('click', function callbackParams() {
 
 backProjectBtn.addEventListener('click', openModalCard);
 modalCloseIcon.addEventListener('click', closeModalCard);
+
+
+let selectedCard = [], checkboxes = [], pledgeAmtDivs = [];
+checkboxArr.forEach(function(checkbox) {
+    checkbox.addEventListener('click', function callbackParams() {
+        toggleRewardCardFocus(this);
+        checkboxRules(this);
+    });
+})
+

@@ -67,7 +67,7 @@ $headerHeight: 400px;
 @mixin modalCard {
     border-radius: 10px;
     cursor: pointer;
-    border: 1px hsl(0, 0%, 89%) solid;
+    border: 1px solid hsl(0, 0%, 89%);
 }
 
 @mixin pledgeInfo {
@@ -75,10 +75,11 @@ $headerHeight: 400px;
     grid-template-columns: 50px auto auto 1fr auto;
     grid-template-rows: 30px auto;
     grid-template-areas: 
-    "radio title pledge . num-left"
+    "checkbox title pledge . num-left"
     ". descr descr descr descr";
     justify-items: start;
     padding: 2rem;    
+    cursor: pointer;
 }
 
 
@@ -370,6 +371,7 @@ main {
     transform: translateX(-50%);
     padding: 3rem;
     z-index: 2;
+    box-sizing: border-box;
     // display: none;
 
     .icon-close {
@@ -398,7 +400,7 @@ main {
             grid-template-columns: 50px auto 1fr;
             grid-template-rows: 30px auto;
             grid-template-areas: 
-            "radio title . "
+            "checkbox title . "
             ". descr descr";
         }
         
@@ -410,7 +412,7 @@ main {
             @include pledgeInfo();
         }
         .pledge-amount {
-            display: grid;
+            display: none;
             grid-template-columns: auto 1fr auto auto;
             grid-template-areas: 
             "pledge-text . input continueBtn";
@@ -468,12 +470,12 @@ main {
     .card-first, .card, .card-last {
         margin-top: 1.5rem;
         
-        .radio {
+        .checkbox {
             position: absolute;
             visibility: hidden;
         }
         .check {
-            grid-area: radio;
+            grid-area: checkbox;
             width: 25px;
             height: 25px;   
             // background-color: white;  
@@ -482,7 +484,7 @@ main {
             box-sizing: border-box;
             position: relative;
         }
-        .radio:checked + .check::before {
+        .checkbox:checked + .check::before {
             content: "";
             position: absolute;
             // relative to .check
@@ -558,8 +560,8 @@ main {
             .pledge-info {
                 grid-template-columns: 40px auto;
                 grid-template-areas:    
-                "radio title . num-left"
-                "radio pledge . num-left"   
+                "checkbox title . num-left"
+                "checkbox pledge . num-left"   
                 ". descr descr descr";
 
                 .title, .num-left {
@@ -683,7 +685,7 @@ main {
         .card-first .pledge-info {
             grid-template-columns: 40px auto;
             grid-template-areas: 
-            "radio title"
+            "checkbox title"
             "descr descr";
             padding: 1.5rem;
 
@@ -695,8 +697,8 @@ main {
         .card .pledge-info, .card-last .pledge-info {
             grid-template-columns: 40px auto;
             grid-template-areas: 
-            "radio title title"
-            "radio pledge pledge"
+            "checkbox title title"
+            "checkbox pledge pledge"
             "descr descr descr"
             "num-left num-left.";
             padding: 1.5rem;
@@ -763,6 +765,12 @@ main {
 
     #modal-card {
         width: 90%;
+
+        .card, .card-last {
+            .pledge-amount {
+                padding: 1.5rem .5rem;
+            }
+        }
     }
 }
 
