@@ -393,6 +393,10 @@ main {
   cursor: pointer;
 }
 
+#modal-card .icon-close path:hover {
+  opacity: 1;
+}
+
 #modal-card .title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -491,6 +495,10 @@ main {
   padding: 2px;
 }
 
+#modal-card .card .pledge-amount .input-wrapper:hover, #modal-card .card-last .pledge-amount .input-wrapper:hover {
+  border: 1px solid #147b74;
+}
+
 #modal-card .card .pledge-amount .input-wrapper .prefix, #modal-card .card-last .pledge-amount .input-wrapper .prefix {
   color: gray;
   margin: 0 .5rem 0 1rem;
@@ -517,6 +525,11 @@ main {
   padding: 1rem 1.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: pointer;
+}
+
+#modal-card .card .pledge-amount .continueBtn:hover, #modal-card .card-last .pledge-amount .continueBtn:hover {
+  background-color: #147b74;
 }
 
 #modal-card .card-first, #modal-card .card, #modal-card .card-last {
@@ -541,6 +554,10 @@ main {
   position: relative;
 }
 
+#modal-card .card-first .check:hover, #modal-card .card .check:hover, #modal-card .card-last .check:hover {
+  border: 1px solid #3cb4ac;
+}
+
 #modal-card .card-first .checkbox:checked + .check::before, #modal-card .card .checkbox:checked + .check::before, #modal-card .card-last .checkbox:checked + .check::before {
   content: "";
   position: absolute;
@@ -559,6 +576,14 @@ main {
   -ms-grid-column: 2;
   grid-area: title;
   font-size: 1rem;
+}
+
+#modal-card .card-first .title:hover, #modal-card .card .title:hover, #modal-card .card-last .title:hover {
+  color: #3cb4ac;
+}
+
+#modal-card .card-first .title:hover + .pledge, #modal-card .card .title:hover + .pledge, #modal-card .card-last .title:hover + .pledge {
+  font-weight: 700;
 }
 
 #modal-card .card-first .pledge, #modal-card .card .pledge, #modal-card .card-last .pledge {
@@ -595,7 +620,7 @@ main {
 }
 
 #modal-card .card-last {
-  opacity: .7;
+  opacity: .5;
 }
 
 @media screen and (max-width: 1200px) {

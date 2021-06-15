@@ -7,7 +7,7 @@ const bookmarkIconMobile = body.querySelector('.bookmark-icon-mobile');
 const backProjectBtn = body.querySelector('.back-project-btn');
 const modalCloseIcon = body.querySelector('.icon-close');
 const checkboxArr = body.querySelectorAll('.checkbox');
-
+const titles = body.querySelectorAll('.title');
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
@@ -148,7 +148,9 @@ function checkboxRules(checkbox) {
     }
 }
 
-
+function titleHover(title) {
+    
+}
 
 // TODO Execute Actions ====================== // 
 
@@ -174,5 +176,20 @@ checkboxArr.forEach(function(checkbox) {
         toggleRewardCardFocus(this);
         checkboxRules(this);
     });
+})
+
+titles.forEach(function(title) {
+    title.addEventListener('mouseenter', function() {
+        // TODO
+        // checkbox border changed when .title is being hovered 
+        checkbox = this.previousElementSibling
+        checkbox.style.border = `1px solid ${moderateCyan}`
+    })
+    title.addEventListener('mouseleave', function() {
+        // TODO
+        // checkbox border changed when .title is being hovered 
+        checkbox = this.previousElementSibling
+        checkbox.style.border = `1px solid hsl(0, 0%, 85%)`;
+    })
 })
 

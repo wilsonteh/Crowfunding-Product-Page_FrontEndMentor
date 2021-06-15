@@ -379,7 +379,12 @@ main {
         top: 30px;
         right: 30px;
         cursor: pointer;
+
+        path:hover {
+            opacity: 1;
+        }
     }
+    
     .title {
         font-size: 1.5rem;
         font-weight: 700;
@@ -388,7 +393,7 @@ main {
         color: $textColor;
         line-height: 1.5rem;
         text-align: justify; 
-    }
+    } 
 
     // for first card with slightly diff grid layout than the rest
     .card-first {
@@ -439,6 +444,10 @@ main {
                 margin-right: 1rem;
                 padding: 2px;
                 
+                &:hover {
+                    border: 1px solid $darkCyan;
+                }
+                
                 .prefix {
                     color: $textColor;
                     margin: 0 .5rem 0 1rem;
@@ -449,9 +458,6 @@ main {
                     outline: none;
                     font-weight: 700;
                     font-family: inherit;
-                    &:focus {
-                        // border-bottom: 1px solid black;
-                    }
                 }
             }
             .continueBtn {
@@ -464,6 +470,11 @@ main {
                 font-family: inherit;
                 padding: 1rem 1.5rem;
                 box-sizing: border-box;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $darkCyan;
+                }
             }
         }
     }
@@ -483,6 +494,10 @@ main {
             border-radius: 50%;
             box-sizing: border-box;
             position: relative;
+            
+            &:hover {
+                border: 1px solid $moderateCyan;
+            }
         }
         .checkbox:checked + .check::before {
             content: "";
@@ -500,6 +515,12 @@ main {
         .title {
             grid-area: title;
             font-size: 1rem;
+            &:hover {
+                color: $moderateCyan;
+            }
+        }
+        .title:hover + .pledge {
+            font-weight: 700;
         }
         .pledge {
             grid-area: pledge;
@@ -526,7 +547,7 @@ main {
         }
     }
     .card-last {
-        opacity: .7;
+        opacity: .5;
     }
 }
 
