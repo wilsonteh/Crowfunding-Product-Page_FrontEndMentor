@@ -14,6 +14,7 @@ body {
   opacity: .5;
   position: fixed;
   z-index: 1;
+  display: none;
 }
 
 header {
@@ -384,6 +385,7 @@ main {
   padding: 3rem;
   z-index: 2;
   box-sizing: border-box;
+  display: none;
 }
 
 #modal-card .icon-close {
@@ -429,6 +431,39 @@ main {
       grid-template-columns: 50px auto 1fr;
   grid-template-rows: 30px auto;
       grid-template-areas: "checkbox title . " ". descr descr";
+}
+
+#modal-card .card-first .pledge-amount {
+  display: none;
+  -ms-grid-columns: auto 1fr auto auto;
+      grid-template-columns: auto 1fr auto auto;
+      grid-template-areas: "pledge-text . input continueBtn";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1.5rem 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#modal-card .card-first .pledge-amount .continueBtn {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: continueBtn;
+  background-color: #3cb4ac;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 1rem 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+
+#modal-card .card-first .pledge-amount .continueBtn:hover {
+  background-color: #147b74;
 }
 
 #modal-card .card, #modal-card .card-last {
@@ -623,12 +658,79 @@ main {
   opacity: .5;
 }
 
+#modal-completed {
+  width: 30%;
+  height: auto;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 10px;
+  z-index: 2;
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+#modal-completed .check-icon {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+#modal-completed .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+#modal-completed .description {
+  color: gray;
+  text-align: center;
+  line-height: 2rem;
+}
+
+#modal-completed .gotit-btn {
+  color: white;
+  background-color: #3cb4ac;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  padding: 1.1rem 2rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+  padding: .8rem 2rem;
+  cursor: pointer;
+}
+
+#modal-completed .gotit-btn:hover {
+  background-color: #147b74;
+}
+
 @media screen and (max-width: 1200px) {
   main {
     width: 60%;
   }
   #modal-card {
     width: 60%;
+  }
+  #modal-completed {
+    width: 40%;
   }
 }
 
@@ -662,6 +764,9 @@ main {
   }
   #modal-card .card .pledge-info .description, #modal-card .card-last .pledge-info .description {
     margin-top: 2rem;
+  }
+  #modal-completed {
+    width: 50%;
   }
 }
 
@@ -805,6 +910,9 @@ main {
   #modal-card .card .pledge-amount .continueBtn, #modal-card .card-last .pledge-amount .continueBtn {
     -ms-grid-column-align: start;
         justify-self: start;
+  }
+  #modal-completed {
+    width: 60%;
   }
 }
 

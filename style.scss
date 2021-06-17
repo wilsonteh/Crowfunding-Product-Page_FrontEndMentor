@@ -99,7 +99,7 @@ body {
     opacity: .5;
     position: fixed;
     z-index: 1;
-    // display: none;
+    display: none;
 }
 
 header {
@@ -372,7 +372,7 @@ main {
     padding: 3rem;
     z-index: 2;
     box-sizing: border-box;
-    // display: none;
+    display: none;
 
     .icon-close {
         position: absolute;
@@ -407,7 +407,35 @@ main {
             grid-template-areas: 
             "checkbox title . "
             ". descr descr";
+
         }
+        .pledge-amount {
+            display: none;
+            grid-template-columns: auto 1fr auto auto;
+            grid-template-areas: 
+            "pledge-text . input continueBtn";
+            align-items: center;
+            padding: 0 1.5rem 1.5rem;
+            box-sizing: border-box;
+
+            .continueBtn {
+                grid-area: continueBtn;
+                background-color: $moderateCyan;
+                border: none;
+                border-radius: 50px;
+                color: white;
+                font-weight: 500;
+                font-family: inherit;
+                padding: 1rem 1.5rem;
+                box-sizing: border-box;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $darkCyan;
+                }
+            }
+        }
+        
         
     }
     .card, .card-last {
@@ -551,12 +579,58 @@ main {
     }
 }
 
+#modal-completed {
+    width: 30%;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    z-index: 2;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    .check-icon {
+        transform: scale(1.3);
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem 0;
+        text-align: center;
+    }
+    .description {
+        color: $textColor;
+        text-align: center;
+        line-height: 2rem;
+    }
+    .gotit-btn {
+        @include roundedButton($moderateCyan);
+        margin-top: 2rem;
+        padding: .8rem 2rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $darkCyan;
+        }
+    }
+}
+
 @media screen and (max-width: 1200px) {
     main {
         width: 60%;
     }
     #modal-card {
         width: 60%;
+    }
+    #modal-completed {
+        width: 40%;
     }
 }
 
@@ -596,6 +670,9 @@ main {
                 }
             }
         }
+    }
+    #modal-completed {
+        width: 50%;
     }
 }
 
@@ -753,6 +830,10 @@ main {
                 justify-self: start;
             }
         }
+    }
+
+    #modal-completed {
+        width: 60%;
     }
 }
 

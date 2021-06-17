@@ -8,15 +8,17 @@ const backProjectBtn = body.querySelector('.back-project-btn');
 const modalCloseIcon = body.querySelector('.icon-close');
 const checkboxArr = body.querySelectorAll('.checkbox');
 const titles = body.querySelectorAll('.title');
+const continueBtnArr = body.querySelectorAll('.continueBtn');
+const gotitBtn = body.querySelector('#modal-completed .gotit-btn');
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
 const darkGray = 'hsl(0, 0%, 48%)';
 
-// console.log(checkedArr);
+// console.log('hello');
 // console.dir(toggle)
 
-// TODO ALL FUNCTIONS DEFINED HERE // 
+// TODO ALL functionS DEFINED HERE // 
 function callbackParams(callback) {
     callback();
 }
@@ -89,7 +91,7 @@ function bookmarkToggleMobile(bkmkIcon) {
 function openModalCard() {
     const modalCard = body.querySelector('#modal-card');
     const overlay = body.querySelector('#overlay');
-    
+
     modalCard.classList.toggle('toggle-modal-card');
     overlay.style.display = 'block';
 }
@@ -116,7 +118,6 @@ function toggleRewardCardFocus(checkbox) {
         pledgeAmtDiv.style.display = 'none';
     }
 }
-
 
 function checkboxRules(checkbox) {
     // TODO
@@ -148,8 +149,24 @@ function checkboxRules(checkbox) {
     }
 }
 
-function titleHover(title) {
+function toggleModalCompleted(continueBtn) {
+    const modalCompletedCard = body.querySelector('#modal-completed');
+    let modalCompletedDisplay = window.getComputedStyle(modalCompletedCard).display
+
+    const overlay = body.querySelector('#overlay');
     
+    if (modalCompletedDisplay === 'none') {
+        // open Modal Completed Card
+        modalCompletedCard.style.display = 'flex'
+        closeModalCard()
+        overlay.style.display = 'block'
+        
+    } else {
+        modalCompletedCard.style.display = 'none'
+        overlay.style.display = 'none'
+    }
+
+
 }
 
 // TODO Execute Actions ====================== // 
@@ -193,3 +210,10 @@ titles.forEach(function(title) {
     })
 })
 
+continueBtnArr.forEach(function(continueBtn) {
+    continueBtn.addEventListener('click', function callbackParams() {
+        toggleModalCompleted(this)
+    });
+})
+
+gotitBtn.addEventListener('click', toggleModalCompleted);
