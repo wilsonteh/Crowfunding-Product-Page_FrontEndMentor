@@ -10,6 +10,7 @@ const checkboxArr = body.querySelectorAll('.checkbox');
 const titles = body.querySelectorAll('.title');
 const continueBtnArr = body.querySelectorAll('.continueBtn');
 const gotitBtn = body.querySelector('#modal-completed .gotit-btn');
+const rewardBtnArr = body.querySelectorAll('.rewardBtn');
 
 const moderateCyan = 'hsl(176, 50%, 47%)';
 const darkCyan = 'hsl(176, 72%, 28%)';
@@ -165,8 +166,6 @@ function toggleModalCompleted(continueBtn) {
         modalCompletedCard.style.display = 'none'
         overlay.style.display = 'none'
     }
-
-
 }
 
 // TODO Execute Actions ====================== // 
@@ -212,8 +211,12 @@ titles.forEach(function(title) {
 
 continueBtnArr.forEach(function(continueBtn) {
     continueBtn.addEventListener('click', function callbackParams() {
-        toggleModalCompleted(this)
+        toggleModalCompleted(this);
     });
 })
 
 gotitBtn.addEventListener('click', toggleModalCompleted);
+
+rewardBtnArr.forEach(function(rewardBtn) {
+    rewardBtn.addEventListener('click', openModalCard);
+})
