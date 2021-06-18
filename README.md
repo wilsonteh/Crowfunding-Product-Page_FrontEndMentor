@@ -17,13 +17,8 @@ Users should be able to:
 
 
 ### Links
-<<<<<<< HEAD
 - [Solution URL](https://www.frontendmentor.io/solutions/crowdfunding-product-page-using-flexbox-and-grids-SjJ-MICIn)
 - [Live Site URL](https://wilsonteh.github.io/Crowfunding-Product-Page_FrontEndMentor/)
-=======
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
->>>>>>> 567760078671615ede8da987a08f058b795adc83
 
 ## My process
 
